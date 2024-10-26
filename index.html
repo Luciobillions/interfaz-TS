@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Informatica</title>
+    <link rel="icon" type="image/x-icon" href="./img/icono.png">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Registro de Cliente</h1>
+        <form id="clienteForm" class="mt-4">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" class="form-control" placeholder="Nombre..." required />
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" class="form-control" placeholder="Apellido..." required />
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Email..." required />
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" class="form-control" placeholder="Teléfono..." required />
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block">Registrar Cliente</button>
+        </form>
+    </div>
+
+    <script src="./interfaz.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    
+    <link rel="icon" type="image/x-icon" href="./img/icono.png">
+
+    <title>Factura</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Factura</h1>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Detalles del Cliente</h2>
+            </div>
+            <div class="card-body" id="factura">
+                <!-- Aquí se llenará la información del cliente y factura -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtener los datos del cliente desde localStorage
+        const cliente = JSON.parse(localStorage.getItem('cliente') || '{}');
+        const factura = JSON.parse(localStorage.getItem('factura') || '{}');
+
+        // Asegúrate de que el elemento existe antes de modificarlo
+        const facturaDiv = document.getElementById('factura');
+        if (facturaDiv) {
+            facturaDiv.innerHTML = `
+                <p><strong>Cliente:</strong> ${cliente.nombre || 'Desconocido'} ${cliente.apellido || ''}</p>
+                <p><strong>Email:</strong> ${cliente.email || 'No disponible'}</p>
+                <p><strong>Teléfono:</strong> ${cliente.telefono || 'No disponible'}</p>
+                
+                <h3 class="mt-4">Detalles de la Factura</h3>
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Componente</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${factura.componente || 'No especificado'}</td>
+                            <td>$${factura.precio ? factura.precio.toFixed(2) : '0.00'}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            `;
+        } else {
+            console.error("No se encontró el elemento 'factura'");
+        }
+    </script>
+</body>
+</html>
